@@ -28,24 +28,24 @@ namespace CUI
 			List<string> toestellen = new();
 
 			SqlConnection sqlCon = new(@"Data Source=.\SQLEXPRESS;Initial Catalog=FitnessServer;Integrated Security=True;Pooling=False");
-			//try
-			//{
-			//	using (var reader = new StreamReader("klanten.txt"))
-			//	{
-			//		while (!reader.EndOfStream)
-			//		{
-			//			klanten.Add(reader.ReadLine());
-			//		}
-			//	}
-			//}
-			//catch (Exception)
-			//{
+            try
+            {
+                using (var reader = new StreamReader("klanten.txt"))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        klanten.Add(reader.ReadLine());
+                    }
+                }
+            }
+            catch (Exception)
+            {
 
-			//	Console.WriteLine("Fout bij inladen data klanten");
-			//}
+                Console.WriteLine("fout bij inladen data klanten");
+            }
 
-			try
-			{
+            try
+            {
 				using (var reader = new StreamReader("FitnessToestellen.txt"))
 				{
 					while (!reader.EndOfStream)
@@ -66,24 +66,24 @@ namespace CUI
 				using (sqlCon)
 				{
 					sqlCon.Open();
-					//foreach (string klant in klanten)
-					//{
-					//	string[] klantSplit = klant.Split(",");
-					//	string query = "INSERT INTO klant (K_FirstName,K_Name,K_Email,K_Gemeente,K_GeboorteDatum,K_Intresse,K_Subscription) VALUES(@K_FirstName,@K_Name,@K_Email,@K_Gemeente,@K_GeboorteDatum,@K_Intresse,@K_Subscription)";
+                    foreach (string klant in klanten)
+                    {
+                        string[] klantSplit = klant.Split(",");
+                        string query = "INSERT INTO klant (K_FirstName,K_Name,K_Email,K_Gemeente,K_GeboorteDatum,K_Intresse,K_Subscription) VALUES(@K_FirstName,@K_Name,@K_Email,@K_Gemeente,@K_GeboorteDatum,@K_Intresse,@K_Subscription)";
 
-					//	SqlCommand cmd = new SqlCommand(query, sqlCon);
+                        SqlCommand cmd = new SqlCommand(query, sqlCon);
 
-					//	cmd.Parameters.AddWithValue("@K_FirstName", klantSplit[0]);
-					//	cmd.Parameters.AddWithValue("@K_Name", klantSplit[1]);
-					//	cmd.Parameters.AddWithValue("@K_Email", klantSplit[2]);
-					//	cmd.Parameters.AddWithValue("@K_Gemeente", klantSplit[3]);
-					//	cmd.Parameters.AddWithValue("@K_GeboorteDatum", klantSplit[4]);
-					//	cmd.Parameters.AddWithValue("@K_Intresse", HeeftInteresse(klantSplit[5]));
-					//	cmd.Parameters.AddWithValue("@K_Subscription", HeeftSub(klantSplit[6]));
+                        cmd.Parameters.AddWithValue("@K_FirstName", klantSplit[0]);
+                        cmd.Parameters.AddWithValue("@K_Name", klantSplit[1]);
+                        cmd.Parameters.AddWithValue("@K_Email", klantSplit[2]);
+                        cmd.Parameters.AddWithValue("@K_Gemeente", klantSplit[3]);
+                        cmd.Parameters.AddWithValue("@K_GeboorteDatum", klantSplit[4]);
+                        cmd.Parameters.AddWithValue("@K_Intresse", HeeftInteresse(klantSplit[5]));
+                        cmd.Parameters.AddWithValue("@K_Subscription", HeeftSub(klantSplit[6]));
 
-					//	cmd.ExecuteNonQuery();
-					//}
-					foreach (string toestel in toestellen)
+                        cmd.ExecuteNonQuery();
+                    }
+                    foreach (string toestel in toestellen)
 					{
 						string[] toestelSplit = toestel.Split(",");
 						string query2 =
@@ -92,40 +92,24 @@ namespace CUI
 
 						cmd.ExecuteNonQuery();
 					}
-					//foreach (string klant in klanten)
-					//{
-					//	string[] klantSplit = klant.Split(",");
-					//	string query3 = "INSERT INTO LoginKlant (L_Username,L_Passwoord) VALUES (@L_Username,@L_Passwoord)";
+                    foreach (string klant in klanten)
+                    {
+                        string[] klantSplit = klant.Split(",");
+                        string query3 = "INSERT INTO LoginKlant (L_Username,L_Passwoord) VALUES (@L_Username,@L_Passwoord)";
 
-					//	SqlCommand cmd = new SqlCommand(query3, sqlCon);
+                        SqlCommand cmd = new SqlCommand(query3, sqlCon);
 
-					//	cmd.Parameters.AddWithValue("@L_Username", klantSplit[2].Replace("'", ""));
-					//	cmd.Parameters.AddWithValue("@L_Passwoord", klantSplit[0].Replace("'", "") + klantSplit[1].Replace("'", ""));
+                        cmd.Parameters.AddWithValue("@L_Username", klantSplit[2].Replace("'", ""));
+                        cmd.Parameters.AddWithValue("@L_Passwoord", klantSplit[0].Replace("'", "") + klantSplit[1].Replace("'", ""));
 
-					//	cmd.ExecuteNonQuery();
-					//}
-					sqlCon.Close();
+                        cmd.ExecuteNonQuery();
+                    }
+                    sqlCon.Close();
 				}
 				// Aanvullen database
 				var count = 0;
 				if (count == 0)
-				//{
-				//	_dc.RegistreerAuto("123xyz", "Toyota", "Yaris");
-				//	//_dc.RegistreerDevice("123xyz", "Toyota", "Yaris");
-				//	_dc.RegistreerAuto("567xyz", "Renault", "Fluence");
-				//	_dc.RegistreerAuto("456abc", "Opel", "Astra");
-				//	_dc.RegistreerAuto("qwerty", "Toyota", "Avensis");
-				//	_dc.RegistreerAuto("789cde", "Mercedes", "C-Klasse Berline");
-				//	_dc.RegistreerAuto("azerty", "BMW", "320");
-				//	_dc.RegistreerAuto("ab12ab", "Opel", "Zafira");
-				//	_dc.RegistreerAuto("xy12xy", "Peugeot", "308");
-				//}
 
-				//string infoAuto = _dc.GeefDevices("456abc");
-				//Console.WriteLine("Overzicht auto met nummerplaat '456abc':");
-				//Console.WriteLine(infoAuto);
-
-				//_dc.WijzigAuto("456abc", "Seat", "Alhambra");
 
 				Console.WriteLine("Overzicht alle machines:");
 				foreach (var deviceList in _dc.GeefDevices())
@@ -142,22 +126,22 @@ namespace CUI
 			}
 
 		}
-		//string HeeftSub(string v)
-		//{
-		//	if (v == "")
-		//	{
-		//		return "";
-		//	}
-		//	else return v;
-		//}
+        string HeeftSub(string v)
+        {
+            if (v == "")
+            {
+                return "";
+            }
+            else return v;
+        }
 
-		//object HeeftInteresse(string v)
-		//{
-		//	if (v == "")
-		//	{
-		//		return "";
-		//	}
-		//	else return v;
-		//}
-	}
+        object HeeftInteresse(string v)
+        {
+            if (v == "")
+            {
+                return "";
+            }
+            else return v;
+        }
+    }
 }

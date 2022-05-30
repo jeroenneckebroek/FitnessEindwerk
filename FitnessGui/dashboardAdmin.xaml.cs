@@ -50,12 +50,13 @@ namespace FitnessGui
             else
             {
                 _dc.WijzigDevice(txtNummer.Text, txtType.Text);
-                if (sqlCon.State == ConnectionState.Closed)
-                {
-                    sqlCon.Open();
-                }
+                //if (sqlCon.State == ConnectionState.Closed)
+                //{
+                //    sqlCon.Open();
+                //}
+                
+                //sqlCon.Close();
                 FillDataGrid();
-                sqlCon.Close();
 
                 MessageBox.Show("Toestel is in onderhoud geplaatst");
             }
@@ -72,12 +73,13 @@ namespace FitnessGui
             else
             {
                 _dc.RegistreerDevice(txtNummer.Text, txtType.Text);
-                if (sqlCon.State == ConnectionState.Closed)
-                {
-                    sqlCon.Open();
-                }
+                //if (sqlCon.State == ConnectionState.Closed)
+                //{
+                //    sqlCon.Open();
+                //}
+                
+                //sqlCon.Close();
                 FillDataGrid();
-                sqlCon.Close();
 
                 MessageBox.Show("Toestel is toegevoegd");
             }
@@ -94,12 +96,13 @@ namespace FitnessGui
             else
             {
                 _dc.VerwijderDevice(txtNummer.Text, txtType.Text);
-                if (sqlCon.State == ConnectionState.Closed)
-                {
-                    sqlCon.Open();
-                }
+                //if (sqlCon.State == ConnectionState.Closed)
+                //{
+                //    sqlCon.Open();
+                //}
+                
+                //sqlCon.Close();
                 FillDataGrid();
-                sqlCon.Close();
 
             }
         }

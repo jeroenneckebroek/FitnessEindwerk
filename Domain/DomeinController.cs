@@ -29,7 +29,7 @@ namespace Domain
 
         public void RegistreerDevice(string nummer, string type)
 		{
-			Device.RemoveDevice(nummer, type);
+			Device.RegisterDevice(nummer, type);
 		}
 
 		public List<List<string>> GeefDevices()
