@@ -1,0 +1,47 @@
+﻿<Window x:Class="FitnessGui.dashboardGebruiker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessGui"
+        mc:Ignorable="d"
+        Title="dashboardGebruiker" Height="500" Width="800">
+    <Border Background="#FF4C89AF" Visibility="Visible" BorderBrush="Transparent" SnapsToDevicePixels="True">
+    <Grid>
+        <DockPanel DockPanel.Dock ="Left">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Image Source="/fitness.jpg" Width="400"/>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Right" LastChildFill="False" Margin="467,50,76,61">
+            <StackPanel DockPanel.Dock="TOP" Width="181" Height="360">
+                <Label Name="EmailKlant" Visibility="Hidden"></Label>
+                <Label Name="LoginName" FontWeight="Bold" Target="{Binding ElementName=lbLoginName}"/>
+                <Label Name="lbDatum" Content="Gewenste datum" Target="{Binding ElementName=dpDag}"/>
+                <DatePicker x:Name="dpDag">
+                </DatePicker>
+                <Label Name="lbMachine" Content="Machine"/>
+                <ComboBox x:Name="cmbType" ItemsSource="{Binding M_Type}">
+                </ComboBox>
+                <Label Content="Uren"/>
+                <ListBox x:Name="Lsb_TimeSlot" Height="130" Width="100" ItemsSource="{Binding T_Uur}" SelectionMode="Multiple" IsTextSearchEnabled="False" />
+
+
+
+                <DockPanel DockPanel.Dock="Right" LastChildFill="False">
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Margin" Value=" 0 10 0 0" />
+                                <Setter Property="Padding" Value="5" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button x:Name="btnAfspraak" Content="Afspraak Maken" Click="btnAfspraak_Click"/>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+    </Border>
+</Window>

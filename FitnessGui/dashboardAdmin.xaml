@@ -1,0 +1,55 @@
+﻿<Window x:Class="FitnessGui.dashboardAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessGui"
+        xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+        mc:Ignorable="d"
+        Title="dashboardAdmin" Height="450" Width="800">
+
+    <Border Background="#FF4C89AF" Visibility="Visible" BorderBrush="Transparent" SnapsToDevicePixels="True">
+    <DockPanel Margin="10,0,10,10">
+        <DockPanel DockPanel.Dock="Right" LastChildFill="False" Width="200">
+            <StackPanel DockPanel.Dock="Top">
+                
+                <Label Content="Huidige Machine" FontWeight="Bold"/>
+                <Label Content="Machine" Target="{Binding ElementName=txtType}"/>
+                <TextBox x:Name="txtType" />
+                <Label Content="Nummer" Target="{Binding ElementName=txtNummer}"/>
+                <TextBox x:Name="txtNummer" />
+                
+
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Right" LastChildFill="False">
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="2" />
+                            <Setter Property="Padding" Value="5" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="btnOnderhoud" Content="Onderhoud" Click="btnOnderhoud_Click"/>
+                    <Button x:Name="btnToevoegen" Content="Toevoegen" Click="btnToevoegen_Click"/>
+                    <Button x:Name="btnVerwijder" Content="Verwijder" Click="btnVerwijder_Click"/>
+                </StackPanel>
+            </DockPanel>
+
+        </DockPanel>
+
+        <DockPanel>
+            <Label DockPanel.Dock="Top"  Content="Overzicht Machines:" FontWeight="Bold"/>
+            <!-- dit is uitleg -->
+            <DataGrid Name="dgSimple" AutoGenerateColumns="False" Margin=" 0 0 10 0" Foreground="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Nummer" Binding="{Binding M_Id, Mode=TwoWay}" />
+                    <DataGridTextColumn Width="*" Header="Type" Binding="{Binding M_Type, Mode=TwoWay}" />
+                    <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Huidig, Mode=TwoWay}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </DockPanel>
+    </DockPanel>
+    </Border>
+</Window>
