@@ -9,53 +9,19 @@ namespace TestFitness
         [Fact]
         public void MaintenanceDevice_Test()
         {
-            string TODO = "2";
-            string TODO2 = "loopband";
-            string TODO3 = "Onderhoud";
+            string nummer = "2";
+            string type = "loopband";
+            string statuus = "Onderhoud";
             // Arrange
-            var device = new Device(TODO, TODO2, TODO3);
+            var device = new Device(nummer, type, statuus);
 
             // Act
             Device.MaintenanceDevice(
-                TODO,
-                TODO2);
+                nummer,
+                type);
 
             // Assert
             Assert.True(true);
         }
-
-        //[Fact]
-        //public void RegisterDevice_StateUnderTest_ExpectedBehavior()
-        //{
-        //    // Arrange
-        //    var device = new Device(TODO, TODO, TODO);
-        //    string nummer = null;
-        //    string type = null;
-
-        //    // Act
-        //    device.RegisterDevice(
-        //        nummer,
-        //        type);
-
-        //    // Assert
-        //    Assert.True(false);
-        //}
-
-        //[Fact]
-        //public void RemoveDevice_StateUnderTest_ExpectedBehavior()
-        //{
-        //    // Arrange
-        //    var device = new Device(TODO, TODO, TODO);
-        //    string nummer = null;
-        //    string type = null;
-
-        //    // Act
-        //    device.RemoveDevice(
-        //        nummer,
-        //        type);
-
-        //    // Assert
-        //    Assert.True(false);
-        //}
     }
 }

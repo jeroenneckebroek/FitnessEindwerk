@@ -10,24 +10,27 @@
     <Border Background="#FF4C89AF" Visibility="Visible" BorderBrush="Transparent" SnapsToDevicePixels="True">
         <Grid>
             <DockPanel DockPanel.Dock ="Left" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Height="473" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+                <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Height="475" Width="467">
                     <Image Height="111" Width="192" Source="/logo.jpg" Margin="0,50,0,0"/>
                     <Image Height="204" Width="308" Source="/pic2.jpg" VerticalAlignment="Bottom" Margin="0,50,0,0"/>
                 </StackPanel>
             </DockPanel>
-
-            <DockPanel DockPanel.Dock="Right" LastChildFill="False" Margin="467,50,76,61" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel DockPanel.Dock="TOP" Width="181" Height="360">
+            <DockPanel DockPanel.Dock="Right" LastChildFill="False" Margin="0,57,30,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="265">
+                <StackPanel DockPanel.Dock="TOP" Width="210" Height="360">
                     <Label Name="EmailKlant" Visibility="Hidden"></Label>
-                    <Label Name="LoginName" FontWeight="Bold" Target="{Binding ElementName=lbLoginName}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="Welkom" Content="Welkom" FontWeight="Normal" FontSize="16"></Label>
+                        <Label Name="LoginName" FontWeight="Normal" FontSize="16" Target="{Binding ElementName=lbLoginName}"/>
+                    </StackPanel>
+
                     <Label Name="lbDatum" Content="Gewenste datum" Target="{Binding ElementName=dpDag}"/>
                     <DatePicker x:Name="dpDag">
                     </DatePicker>
                     <Label Name="lbMachine" Content="Machine"/>
-                    <ComboBox x:Name="cmbType" ItemsSource="{Binding M_Type}" Foreground="White" Background="#FF656565">
+                    <ComboBox x:Name="cmbType" ItemsSource="{Binding M_Type}" Foreground="#FF4C89AF" Background="#FF656565" Width="187">
                     </ComboBox>
                     <Label Content="Uren"/>
-                    <ListBox x:Name="Lsb_TimeSlot" Height="130" Width="100" ItemsSource="{Binding T_Uur}" SelectionMode="Multiple" IsTextSearchEnabled="False" Foreground="White" Background="#FF656565" />
+                    <ListBox x:Name="Lsb_TimeSlot" Height="130" Width="126" ItemsSource="{Binding T_Uur}" SelectionMode="Multiple" IsTextSearchEnabled="False" Foreground="#FF4C89AF" Background="White" d:ItemsSource="{d:SampleData ItemCount=5}" />
 
 
 
@@ -39,7 +42,7 @@
                                     <Setter Property="Padding" Value="5" />
                                 </Style>
                             </StackPanel.Resources>
-                            <Button x:Name="btnAfspraak" Content="Afspraak Maken" Click="btnAfspraak_Click"/>
+                            <Button x:Name="btnAfspraak" Content="Afspraak Maken" Click="btnAfspraak_Click" Background="#FF2B303A" Foreground="White"/>
                         </StackPanel>
                     </DockPanel>
                 </StackPanel>

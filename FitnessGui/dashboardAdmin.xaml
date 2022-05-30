@@ -10,38 +10,39 @@
 
     <Border Background="#FF4C89AF" Visibility="Visible" BorderBrush="Transparent" SnapsToDevicePixels="True">
     <DockPanel Margin="10,0,10,10">
-        <DockPanel DockPanel.Dock="Right" LastChildFill="False" Width="200">
+        <DockPanel DockPanel.Dock="Right" LastChildFill="False" Width="222" Margin="0,0,30,0">
             <StackPanel DockPanel.Dock="Top">
                 
                 <Label Content="Huidige Machine" FontWeight="Bold"/>
                 <Label Content="Machine" Target="{Binding ElementName=txtType}"/>
-                <TextBox x:Name="txtType" Foreground="White" />
+                <TextBox x:Name="txtType" Foreground="White" Width="200" />
                 <Label Content="Nummer" Target="{Binding ElementName=txtNummer}"/>
-                <TextBox x:Name="txtNummer" Foreground="White" />
+                <TextBox x:Name="txtNummer" Foreground="White" Width="200" />
                 
 
             </StackPanel>
 
-            <DockPanel DockPanel.Dock="Right" LastChildFill="False">
-                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <DockPanel DockPanel.Dock="Right" LastChildFill="False" Margin="0,2,0,0">
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Width="223" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                     <StackPanel.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Margin" Value="2" />
                             <Setter Property="Padding" Value="5" />
                         </Style>
                     </StackPanel.Resources>
-                    <Button x:Name="btnOnderhoud" Content="Onderhoud" Click="btnOnderhoud_Click"/>
-                    <Button x:Name="btnToevoegen" Content="Toevoegen" Click="btnToevoegen_Click"/>
-                    <Button x:Name="btnVerwijder" Content="Verwijder" Click="btnVerwijder_Click"/>
+                        <Button x:Name="btnOnderhoud" Content="Onderhoud" Click="btnOnderhoud_Click" Background="#FF2B303A" Foreground="White"/>
+                        <Button x:Name="btnToevoegen" Content="Toevoegen" Click="btnToevoegen_Click" Background="#FF2B303A" Foreground="White"/>
+                        <Button x:Name="btnVerwijder" Content="Verwijderen" Click="btnVerwijder_Click" Background="#FF2B303A" Foreground="White"/>
                 </StackPanel>
-            </DockPanel>
+                    <Image Width="220" Source="/logo.jpg"/>
+                </DockPanel>
 
         </DockPanel>
 
-        <DockPanel>
+        <DockPanel Width="498" HorizontalAlignment="Left">
             <Label DockPanel.Dock="Top"  Content="Overzicht Machines:" FontWeight="Bold"/>
             <!-- dit is uitleg -->
-            <DataGrid Name="dgSimple" AutoGenerateColumns="False" Margin=" 0 0 10 0" Foreground="White">
+            <DataGrid Name="dgSimple" AutoGenerateColumns="False" Margin=" 0 0 10 0" Foreground="#FF4C89AF">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" Header="Nummer" Binding="{Binding M_Id, Mode=TwoWay}" />
                     <DataGridTextColumn Width="*" Header="Type" Binding="{Binding M_Type, Mode=TwoWay}" />
