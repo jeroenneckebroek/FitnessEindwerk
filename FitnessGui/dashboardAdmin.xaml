@@ -15,9 +15,9 @@
                 
                 <Label Content="Huidige Machine" FontWeight="Bold"/>
                 <Label Content="Machine" Target="{Binding ElementName=txtType}"/>
-                <TextBox x:Name="txtType" />
+                <TextBox x:Name="txtType" Foreground="White" />
                 <Label Content="Nummer" Target="{Binding ElementName=txtNummer}"/>
-                <TextBox x:Name="txtNummer" />
+                <TextBox x:Name="txtNummer" Foreground="White" />
                 
 
             </StackPanel>
