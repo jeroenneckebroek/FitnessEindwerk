@@ -58,7 +58,7 @@ namespace FitnessGui
                 //sqlCon.Close();
                 FillDataGrid();
 
-                MessageBox.Show("Toestel is in onderhoud geplaatst");
+                MessageBox.Show("Het toestel is in onderhoud geplaatst.");
             }
         }
 
@@ -66,7 +66,7 @@ namespace FitnessGui
         {
             if (txtType.Text is null)
             {
-                MessageBox.Show("Er werd geen type ingegeven", "Opmerking",
+                MessageBox.Show("Het veld Machine mag niet leeg zijn.", "Opmerking",
                                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
@@ -81,7 +81,7 @@ namespace FitnessGui
                 //sqlCon.Close();
                 FillDataGrid();
 
-                MessageBox.Show("Toestel is toegevoegd");
+                MessageBox.Show("Het toestel is toegevoegd.");
             }
         }
 
@@ -89,7 +89,7 @@ namespace FitnessGui
         {
             if (txtType.Text is null)
             {
-                MessageBox.Show("Er werd geen type ingegeven", "Opmerking",
+                MessageBox.Show("Het veld Machine mag niet leeg zijn.", "Opmerking",
                                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }

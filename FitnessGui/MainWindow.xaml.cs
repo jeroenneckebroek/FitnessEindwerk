@@ -73,7 +73,7 @@ namespace FitnessGui
                 }
                 else
                 {
-                    MessageBox.Show("Dit zijn geen geldige gegevens");
+                    MessageBox.Show("De ingevulde gegevens zijn niet geldig.");
                 }
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace FitnessGui
                 }
                 else
                 {
-                    MessageBox.Show("Dit zijn geen geldige Admin gegevens");
+                    MessageBox.Show("De ingevulde gegevens zijn niet geldig.");
                 }
             }
             catch (Exception ex)

@@ -95,7 +95,7 @@ namespace FitnessGui
                 {
                     if (tijdsloten[0] + 2 == tijdsloten[2])
                     {
-                        MessageBox.Show("Te veel selecties na elkaar");
+                        MessageBox.Show("Je kan niet meer dan 2 tijdsloten na elkaar selecteren.");
                     }
                     else
                     {
@@ -106,7 +106,7 @@ namespace FitnessGui
             }
             else
             {
-                MessageBox.Show("meer als 4 totale selecties");
+                MessageBox.Show("Je mag niet meer dan 4 tijdsloten selecteren.");
             }
 
         }
@@ -119,7 +119,7 @@ namespace FitnessGui
         private void NogEenAfspraakMaken()
         {
             MessageBoxResult result;
-            result = MessageBox.Show("Nog een afspraak maken?", "Question",
+            result = MessageBox.Show("Wilt u nog een afspraak maken?", "Question",
                MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.No)
